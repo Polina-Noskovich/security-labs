@@ -64,38 +64,69 @@ kdc.register('client', generate_des_key())
 kdc.register('service', generate_des_key())
 kdc.register('kdc', generate_des_key())
 
-# Клиентская часть
-client_secret = kdc.secrets['client']
-lifetime = datetime.now() + timedelta(hours=1)
+# Запрос ввода от пользователя
+client_input = input("Введите имя клиента (client): ").strip()
+service_input = input("Введите имя сервиса (service): ").strip()
+lifetime_input = input("Введите срок действия билета в часах: ").strip()
+
+# Проверка ввода
+if client_input not in kdc.secrets:
+    raise ValueError("Ошибка: Клиент не зарегистрирован в системе.")
+if service_input not in kdc.secrets:
+    raise ValueError("Ошибка: Сервис не зарегистрирован в системе.")
+if not lifetime_input.isdigit() or int(lifetime_input) <= 0:
+    raise ValueError("Ошибка: Срок действия билета должен быть положительным числом.")
+
+# Преобразование срока действия билета
+lifetime = datetime.now() + timedelta(hours=int(lifetime_input))
 
 # Аутентификация клиента
-response, tgt = kdc.authenticate('client', lifetime)
+print("\n****************************************")
+print(f"Клиент отправил запрос на аутентификацию с принципалом {client_input} и запрашиваемым временем жизни {int(lifetime_input) * 3600} секунд ({lifetime_input} часов)")
+print("****************************************")
+response, tgt = kdc.authenticate(client_input, lifetime)
 
 # Дешифруем ответ для извлечения session_key
+client_secret = kdc.secrets[client_input]
 decrypted_response = des_decrypt(client_secret, response)
 session_key = decrypted_response[:8]
-print("Client Session Key:", session_key.hex())
+print("\n****************************************")
+print("Клиент получил ответ от сервера аутентификации.")
+print(f"Сессионный ключ: {session_key.hex()}\n")
+print("****************************************")
 
 # Запрос к серверу авторизации
-service = 'service'
 authenticator = {
-    'client': 'client',
+    'client': client_input,
     'timestamp': datetime.now().isoformat()
 }
 authenticator_str = str(authenticator).encode()
 encrypted_authenticator = des_encrypt(session_key, pad(authenticator_str))
 
-# Сервер авторизации
-service_ticket = kdc.generate_ticket('client', service, session_key, lifetime)
+print("****************************************")
+print(f"Клиент отправляет запрос на разрешение доступа к сервису (TGS).\nПринципал сервиса: {service_input}")
+print("****************************************")
 
-decrypted_ticket = des_decrypt(kdc.secrets['service'], service_ticket)
+# Сервер авторизации
+service_ticket = kdc.generate_ticket(client_input, service_input, session_key, lifetime)
+
+decrypted_ticket = des_decrypt(kdc.secrets[service_input], service_ticket)
 unpadded_ticket = unpad(decrypted_ticket)
-print("Decrypted Service Ticket:", unpadded_ticket.decode())
+print("\n****************************************")
+print("Клиент получил ответ от TGS.")
+print(f"Сессионный ключ сервиса: {session_key.hex()}\n")
+print("****************************************")
 
 # Клиент отправляет запрос сервису
 service_authenticator = des_encrypt(session_key, pad(authenticator_str))
+print("****************************************")
+print(f"Клиент отправляет запрос на разрешение доступа к сервису (TGS).")
+print("****************************************")
 
 # Проверка на стороне сервиса
 decrypted_service_authenticator = des_decrypt(session_key, service_authenticator)
 unpadded_authenticator = unpad(decrypted_service_authenticator)
-print("Decrypted Service Authenticator:", unpadded_authenticator.decode())
+print("\n****************************************")
+print("Клиент получил ответ от сервиса.")
+print("Полученное сообщение: It's service response\n")
+print("****************************************")
