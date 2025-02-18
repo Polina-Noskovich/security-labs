@@ -1,0 +1,76 @@
+Feb 16 21:22:51.530 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Feb 16 21:22:51.530 HYPERVISOR: Started on IP = localhost, TCP port = 56721.
+Feb 16 21:22:51.943 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 16 21:22:51.945 HYPERVISOR: exec_cmd: hypervisor working_dir D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips 
+Feb 16 21:22:51.949 GENERAL: working_dir=D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips
+Feb 16 21:22:51.949 HYPERVISOR: exec_cmd: hypervisor working_dir D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\674ca365-a502-495f-98d9-835b8e4024ba 
+Feb 16 21:22:51.949 GENERAL: working_dir=D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\674ca365-a502-495f-98d9-835b8e4024ba
+Feb 16 21:22:51.950 HYPERVISOR: exec_cmd: vm create R1 1 c3745 
+Feb 16 21:22:51.952 VM: VM R1 created.
+Feb 16 21:22:51.952 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5000 
+Feb 16 21:22:51.953 HYPERVISOR: exec_cmd: c3745 get_mac_addr R1 
+Feb 16 21:22:51.954 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:22:51.955 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 16 21:22:51.955 HYPERVISOR: exec_cmd: vm set_idle_pc R1 0x60aa1da0 
+Feb 16 21:22:51.955 HYPERVISOR: exec_cmd: vm set_exec_area R1 64 
+Feb 16 21:22:51.956 HYPERVISOR: exec_cmd: vm set_ram R1 256 
+Feb 16 21:22:51.957 HYPERVISOR: exec_cmd: vm set_nvram R1 256 
+Feb 16 21:22:51.957 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Feb 16 21:22:52.088 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:23:28.203 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:23:39.800 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:23:48.211 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:25:09.232 HYPERVISOR: exec_cmd: nio create_udp udp-f83e1aca-5990-4cc1-89ea-6b9b29c0d5b6 10003 127.0.0.1 10004 
+Feb 16 21:25:09.830 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 0 udp-f83e1aca-5990-4cc1-89ea-6b9b29c0d5b6 
+Feb 16 21:25:09.831 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 16 21:25:16.367 HYPERVISOR: exec_cmd: nio create_udp udp-8d1344ee-e55b-481e-8cc9-12421dae69a7 10009 127.0.0.1 10010 
+Feb 16 21:25:16.408 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 1 udp-8d1344ee-e55b-481e-8cc9-12421dae69a7 
+Feb 16 21:25:16.409 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 16 22:38:14.111 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 16 22:38:14.111 HYPERVISOR: exec_cmd: vm slot_remove_nio_binding R1 0 1 
+Feb 16 22:38:14.119 HYPERVISOR: exec_cmd: nio delete udp-8d1344ee-e55b-481e-8cc9-12421dae69a7 
+Feb 16 22:38:25.825 HYPERVISOR: exec_cmd: nio create_udp udp-6285a369-c516-477f-a9ab-ff25db40e8a1 10009 127.0.0.1 10010 
+Feb 16 22:38:25.827 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 1 udp-6285a369-c516-477f-a9ab-ff25db40e8a1 
+Feb 16 22:38:25.827 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 16 22:39:41.441 HYPERVISOR: exec_cmd: vm create Ghost 0 c3745 
+Feb 16 22:39:41.448 VM: VM Ghost created.
+Feb 16 22:39:41.448 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 22:39:41.449 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Feb 16 22:39:41.449 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:39:41.449 HYPERVISOR: exec_cmd: vm set_ram Ghost 256 
+Feb 16 22:39:41.450 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Feb 16 22:39:41.450 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Feb 16 22:39:41.450 HYPERVISOR: exec_cmd: vm start Ghost 
+Feb 16 22:39:41.818 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Feb 16 22:39:41.819 HYPERVISOR: exec_cmd: vm stop Ghost 
+Feb 16 22:39:41.880 VM: VM Ghost shutdown.
+Feb 16 22:39:41.881 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Feb 16 22:39:41.881 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Feb 16 22:39:41.881 VM: VM Ghost destroyed.
+Feb 16 22:39:41.893 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Feb 16 22:39:41.893 HYPERVISOR: exec_cmd: vm set_ghost_file R1 D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:39:41.894 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 16 22:39:41.905 HYPERVISOR: exec_cmd: vm set_config R1 configs\i1_startup-config.cfg 
+Feb 16 22:39:41.905 HYPERVISOR: exec_cmd: vm start R1 
+Feb 16 22:39:43.937 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 22:42:46.385 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Feb 16 22:42:46.400 HYPERVISOR: exec_cmd: vm set_ghost_file R1 D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:42:46.400 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 16 22:54:02.591 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Feb 16 22:54:02.593 HYPERVISOR: exec_cmd: vm set_ghost_file R1 D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:54:02.594 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 16 22:54:20.505 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 16 22:54:20.506 HYPERVISOR: exec_cmd: vm stop R1 
+Feb 16 22:54:20.653 VM: VM R1 shutdown.
+Feb 16 22:54:20.655 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 16 22:54:24.072 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Feb 16 22:54:24.074 HYPERVISOR: exec_cmd: vm set_ghost_file R1 D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:54:24.074 HYPERVISOR: exec_cmd: vm get_status R1 
+Feb 16 22:54:24.087 HYPERVISOR: exec_cmd: vm set_config R1 configs\i1_startup-config.cfg 
+Feb 16 22:54:24.088 HYPERVISOR: exec_cmd: vm start R1 
+Feb 16 22:58:54.458 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 16 22:58:54.465 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 16 22:59:54.474 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 16 22:59:54.482 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 16 23:01:54.507 HYPERVISOR: exec_cmd: vm extract_config R1 
+Feb 16 23:01:54.515 HYPERVISOR: exec_cmd: vm extract_config R1 

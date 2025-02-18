@@ -13,7 +13,7 @@ def caesar_cipher(text, shift, encrypt=True):
         elif char.isdigit():
             shifted_char = str((int(char) + (shift if encrypt else -shift)) % 10)
         else:
-            shifted_char = char  # Не изменяем пробелы и знаки препинания
+            shifted_char = char  
         result += shifted_char
     return result
 
@@ -24,25 +24,39 @@ def vigenere_cipher(text, key, encrypt=True):
     
     for char in text:
         if char.isalpha():
-            if 'а' <= char <= 'я' or 'А' <= char <= 'Я':  
+            if 'а' <= char <= 'я' or 'А' <= char <= 'Я':
                 start = ord('а') if char.islower() else ord('А')
                 alphabet_size = 32
-            else:  
+            elif 'a' <= char <= 'z' or 'A' <= char <= 'Z': 
                 start = ord('a') if char.islower() else ord('A')
                 alphabet_size = 26
+            else:
+                result += char 
+                continue
+
             key_char = key[key_index % key_len].lower()
-            if 'а' <= key_char <= 'я':
+
+            if 'а' <= key_char <= 'я': 
                 shift = ord(key_char) - ord('а')
-            else: 
+            elif 'a' <= key_char <= 'z':  
                 shift = ord(key_char) - ord('a')
+            else:
+                shift = 0  
+
+            if not encrypt:
+                shift = -shift
             
-            # Для расшифровки мы используем отрицательный сдвиг
-            shifted_char = chr((ord(char) - start - (shift if encrypt else -shift)) % alphabet_size + start)
+            shifted_char = chr((ord(char) - start + shift) % alphabet_size + start)
             key_index += 1
         else:
-            shifted_char = char  # Не изменяем пробелы и знаки препинания
+            shifted_char = char 
+        
         result += shifted_char
     return result
+
+
+
+
 
 def get_valid_choice(prompt, valid_choices):
     while True:
@@ -63,7 +77,7 @@ def get_valid_int_input(prompt):
 def get_valid_string_input(prompt):
     while True:
         value = input(prompt).strip()
-        if value:  # Убедимся, что строка не пустая
+        if value: 
             return value
         else:
             print("Ошибка! Пожалуйста, введите не пустую строку.")

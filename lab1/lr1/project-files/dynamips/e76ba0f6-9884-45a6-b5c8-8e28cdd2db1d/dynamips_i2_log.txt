@@ -1,0 +1,47 @@
+Feb 16 21:22:54.672 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Feb 16 21:22:54.672 HYPERVISOR: Started on IP = localhost, TCP port = 56738.
+Feb 16 21:22:55.154 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 16 21:22:55.163 HYPERVISOR: exec_cmd: hypervisor working_dir D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips 
+Feb 16 21:22:55.164 GENERAL: working_dir=D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips
+Feb 16 21:22:55.164 HYPERVISOR: exec_cmd: hypervisor working_dir D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\37687194-4fdf-4341-8eb1-5fe9ec264f53 
+Feb 16 21:22:55.164 GENERAL: working_dir=D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\37687194-4fdf-4341-8eb1-5fe9ec264f53
+Feb 16 21:22:55.201 HYPERVISOR: exec_cmd: vm create R2 2 c3745 
+Feb 16 21:22:55.203 VM: VM R2 created.
+Feb 16 21:22:55.204 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5001 
+Feb 16 21:22:55.204 HYPERVISOR: exec_cmd: c3745 get_mac_addr R2 
+Feb 16 21:22:55.205 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:22:55.206 HYPERVISOR: exec_cmd: vm get_status R2 
+Feb 16 21:22:55.207 HYPERVISOR: exec_cmd: vm set_idle_pc R2 0x60aa1da0 
+Feb 16 21:22:55.207 HYPERVISOR: exec_cmd: vm set_exec_area R2 64 
+Feb 16 21:22:55.208 HYPERVISOR: exec_cmd: vm set_ram R2 256 
+Feb 16 21:22:55.209 HYPERVISOR: exec_cmd: vm set_nvram R2 256 
+Feb 16 21:22:55.209 HYPERVISOR: exec_cmd: vm set_disk0 R2 0 
+Feb 16 21:22:55.292 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:23:29.569 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:25:09.845 HYPERVISOR: exec_cmd: nio create_udp udp-441bd807-e9b0-44db-a4e2-ea705423af73 10005 127.0.0.1 10006 
+Feb 16 21:25:10.132 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 0 udp-441bd807-e9b0-44db-a4e2-ea705423af73 
+Feb 16 21:25:10.133 HYPERVISOR: exec_cmd: vm get_status R2 
+Feb 16 21:25:31.212 HYPERVISOR: exec_cmd: nio create_udp udp-207b301b-51ff-4a12-b8ea-f96e810cd3c2 10015 127.0.0.1 10016 
+Feb 16 21:25:31.253 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 1 udp-207b301b-51ff-4a12-b8ea-f96e810cd3c2 
+Feb 16 21:25:31.254 HYPERVISOR: exec_cmd: vm get_status R2 
+Feb 16 21:26:35.390 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:26:42.006 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 22:42:46.369 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Feb 16 22:42:46.369 HYPERVISOR: exec_cmd: vm set_ghost_file R2 D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:42:46.370 HYPERVISOR: exec_cmd: vm get_status R2 
+Feb 16 22:42:46.383 HYPERVISOR: exec_cmd: vm set_config R2 configs\i2_startup-config.cfg 
+Feb 16 22:42:46.384 HYPERVISOR: exec_cmd: vm start R2 
+Feb 16 22:54:02.586 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Feb 16 22:54:02.587 HYPERVISOR: exec_cmd: vm set_ghost_file R2 D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:54:02.587 HYPERVISOR: exec_cmd: vm get_status R2 
+Feb 16 22:54:20.505 HYPERVISOR: exec_cmd: vm get_status R2 
+Feb 16 22:54:20.506 HYPERVISOR: exec_cmd: vm stop R2 
+Feb 16 22:54:20.678 VM: VM R2 shutdown.
+Feb 16 22:54:20.679 HYPERVISOR: exec_cmd: vm extract_config R2 
+Feb 16 22:54:24.074 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Feb 16 22:54:24.088 HYPERVISOR: exec_cmd: vm set_ghost_file R2 D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:54:24.089 HYPERVISOR: exec_cmd: vm get_status R2 
+Feb 16 22:54:24.112 HYPERVISOR: exec_cmd: vm set_config R2 configs\i2_startup-config.cfg 
+Feb 16 22:54:24.113 HYPERVISOR: exec_cmd: vm start R2 
+Feb 16 23:04:24.574 HYPERVISOR: exec_cmd: vm extract_config R2 
+Feb 16 23:04:24.589 HYPERVISOR: exec_cmd: vm extract_config R2 

@@ -1,0 +1,65 @@
+Feb 16 21:22:57.005 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Feb 16 21:22:57.005 HYPERVISOR: Started on IP = localhost, TCP port = 56744.
+Feb 16 21:22:57.475 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 16 21:22:57.475 HYPERVISOR: exec_cmd: hypervisor working_dir D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips 
+Feb 16 21:22:57.476 GENERAL: working_dir=D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips
+Feb 16 21:22:57.476 HYPERVISOR: exec_cmd: hypervisor working_dir D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\7a4d5cfb-5648-4a3e-ad8d-7e84593e0d03 
+Feb 16 21:22:57.476 GENERAL: working_dir=D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\7a4d5cfb-5648-4a3e-ad8d-7e84593e0d03
+Feb 16 21:22:57.477 HYPERVISOR: exec_cmd: vm create R3 3 c3745 
+Feb 16 21:22:57.478 VM: VM R3 created.
+Feb 16 21:22:57.478 HYPERVISOR: exec_cmd: vm set_con_tcp_port R3 5002 
+Feb 16 21:22:57.480 HYPERVISOR: exec_cmd: c3745 get_mac_addr R3 
+Feb 16 21:22:57.480 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:22:57.481 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 21:22:57.481 HYPERVISOR: exec_cmd: vm set_idle_pc R3 0x60aa1da0 
+Feb 16 21:22:57.482 HYPERVISOR: exec_cmd: vm set_exec_area R3 64 
+Feb 16 21:22:57.482 HYPERVISOR: exec_cmd: vm set_ram R3 256 
+Feb 16 21:22:57.483 HYPERVISOR: exec_cmd: vm set_nvram R3 256 
+Feb 16 21:22:57.484 HYPERVISOR: exec_cmd: vm set_disk0 R3 0 
+Feb 16 21:22:57.580 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:23:33.639 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:23:41.838 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:23:46.824 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:24:36.384 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 21:25:16.420 HYPERVISOR: exec_cmd: nio create_udp udp-9a64a9f0-c662-43a4-85b5-7aa73452846b 10011 127.0.0.1 10012 
+Feb 16 21:25:16.705 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 1 udp-9a64a9f0-c662-43a4-85b5-7aa73452846b 
+Feb 16 21:25:16.706 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 21:26:05.017 HYPERVISOR: exec_cmd: nio create_udp udp-605deec5-3bc5-45eb-8a51-1b9100d4bb36 10019 127.0.0.1 10020 
+Feb 16 21:26:05.058 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 0 udp-605deec5-3bc5-45eb-8a51-1b9100d4bb36 
+Feb 16 21:26:05.059 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 21:26:52.045 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 22:38:14.122 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 22:38:14.122 HYPERVISOR: exec_cmd: vm slot_remove_nio_binding R3 0 1 
+Feb 16 22:38:14.124 HYPERVISOR: exec_cmd: nio delete udp-9a64a9f0-c662-43a4-85b5-7aa73452846b 
+Feb 16 22:38:19.597 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 22:38:19.597 HYPERVISOR: exec_cmd: vm slot_remove_nio_binding R3 0 0 
+Feb 16 22:38:19.598 HYPERVISOR: exec_cmd: nio delete udp-605deec5-3bc5-45eb-8a51-1b9100d4bb36 
+Feb 16 22:38:25.833 HYPERVISOR: exec_cmd: nio create_udp udp-906ca663-c66f-478f-bdb7-309ae67fc8fe 10011 127.0.0.1 10012 
+Feb 16 22:38:25.835 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 0 udp-906ca663-c66f-478f-bdb7-309ae67fc8fe 
+Feb 16 22:38:25.835 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 22:38:50.655 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 22:38:52.699 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/nosko/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Feb 16 22:39:07.215 HYPERVISOR: exec_cmd: nio create_udp udp-c4a0546c-7aff-40d2-a153-5b64311467cc 10019 127.0.0.1 10020 
+Feb 16 22:39:07.217 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 1 udp-c4a0546c-7aff-40d2-a153-5b64311467cc 
+Feb 16 22:39:07.217 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 22:42:46.370 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Feb 16 22:42:46.384 HYPERVISOR: exec_cmd: vm set_ghost_file R3 D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:42:46.385 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 22:42:46.399 HYPERVISOR: exec_cmd: vm set_config R3 configs\i3_startup-config.cfg 
+Feb 16 22:42:46.400 HYPERVISOR: exec_cmd: vm start R3 
+Feb 16 22:54:02.589 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Feb 16 22:54:02.590 HYPERVISOR: exec_cmd: vm set_ghost_file R3 D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:54:02.590 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 22:54:20.505 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 22:54:20.506 HYPERVISOR: exec_cmd: vm stop R3 
+Feb 16 22:54:20.670 VM: VM R3 shutdown.
+Feb 16 22:54:20.672 HYPERVISOR: exec_cmd: vm extract_config R3 
+Feb 16 22:54:24.089 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Feb 16 22:54:24.113 HYPERVISOR: exec_cmd: vm set_ghost_file R3 D:\6 сем\ИСОБ\lab1\lab2\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Feb 16 22:54:24.113 HYPERVISOR: exec_cmd: vm get_status R3 
+Feb 16 22:54:24.170 HYPERVISOR: exec_cmd: vm set_config R3 configs\i3_startup-config.cfg 
+Feb 16 22:54:24.170 HYPERVISOR: exec_cmd: vm start R3 
+Feb 16 23:04:54.696 HYPERVISOR: exec_cmd: vm extract_config R3 
+Feb 16 23:04:54.710 HYPERVISOR: exec_cmd: vm extract_config R3 
+Feb 16 23:06:24.710 HYPERVISOR: exec_cmd: vm extract_config R3 
+Feb 16 23:06:24.718 HYPERVISOR: exec_cmd: vm extract_config R3 
