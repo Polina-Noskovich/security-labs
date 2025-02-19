@@ -2,26 +2,21 @@ import random
 from datetime import datetime, timedelta
 from Crypto.Cipher import DES
 
-# Генерация случайного ключа DES (8 байт)
 def generate_des_key():
     return random.getrandbits(64).to_bytes(8, byteorder='big')
 
-# Функция шифрования
 def des_encrypt(key, data):
     cipher = DES.new(key, DES.MODE_ECB)
     return cipher.encrypt(data)
 
-# Функция дешифрования
 def des_decrypt(key, data):
     cipher = DES.new(key, DES.MODE_ECB)
     return cipher.decrypt(data)
 
-# Заполнение данных до кратного размера блока (64 бита)
 def pad(data):
     pad_len = 8 - (len(data) % 8)
     return data + bytes([pad_len] * pad_len)
 
-# Удаление заполнения
 def unpad(data):
     pad_len = data[-1]
     return data[:-pad_len]
@@ -64,12 +59,10 @@ kdc.register('client', generate_des_key())
 kdc.register('service', generate_des_key())
 kdc.register('kdc', generate_des_key())
 
-# Запрос ввода от пользователя
 client_input = input("Введите имя клиента (client): ").strip()
 service_input = input("Введите имя сервиса (service): ").strip()
 lifetime_input = input("Введите срок действия билета в часах: ").strip()
 
-# Проверка ввода
 if client_input not in kdc.secrets:
     raise ValueError("Ошибка: Клиент не зарегистрирован в системе.")
 if service_input not in kdc.secrets:
@@ -77,7 +70,6 @@ if service_input not in kdc.secrets:
 if not lifetime_input.isdigit() or int(lifetime_input) <= 0:
     raise ValueError("Ошибка: Срок действия билета должен быть положительным числом.")
 
-# Преобразование срока действия билета
 lifetime = datetime.now() + timedelta(hours=int(lifetime_input))
 
 # Аутентификация клиента
