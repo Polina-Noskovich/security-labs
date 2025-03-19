@@ -21,7 +21,6 @@ def unpad(data):
     pad_len = data[-1]
     return data[:-pad_len]
 
-# Центр распределения ключей (KDC)
 class KDC:
     def __init__(self):
         self.secrets = {}
@@ -53,7 +52,6 @@ class KDC:
         encrypted_response = des_encrypt(client_secret, pad(session_key + lifetime.isoformat().encode()))
         return encrypted_response, tgt
 
-# Инициализация KDC
 kdc = KDC()
 kdc.register('client', generate_des_key())
 kdc.register('service', generate_des_key())
@@ -72,13 +70,11 @@ if not lifetime_input.isdigit() or int(lifetime_input) <= 0:
 
 lifetime = datetime.now() + timedelta(hours=int(lifetime_input))
 
-# Аутентификация клиента
 print("\n****************************************")
 print(f"Клиент отправил запрос на аутентификацию с принципалом {client_input} и запрашиваемым временем жизни {int(lifetime_input) * 3600} секунд ({lifetime_input} часов)")
 print("****************************************")
 response, tgt = kdc.authenticate(client_input, lifetime)
 
-# Дешифруем ответ для извлечения session_key
 client_secret = kdc.secrets[client_input]
 decrypted_response = des_decrypt(client_secret, response)
 session_key = decrypted_response[:8]
@@ -87,7 +83,6 @@ print("Клиент получил ответ от сервера аутенти
 print(f"Сессионный ключ: {session_key.hex()}\n")
 print("****************************************")
 
-# Запрос к серверу авторизации
 authenticator = {
     'client': client_input,
     'timestamp': datetime.now().isoformat()
@@ -99,7 +94,6 @@ print("****************************************")
 print(f"Клиент отправляет запрос на разрешение доступа к сервису (TGS).\nПринципал сервиса: {service_input}")
 print("****************************************")
 
-# Сервер авторизации
 service_ticket = kdc.generate_ticket(client_input, service_input, session_key, lifetime)
 
 decrypted_ticket = des_decrypt(kdc.secrets[service_input], service_ticket)
@@ -109,13 +103,11 @@ print("Клиент получил ответ от TGS.")
 print(f"Сессионный ключ сервиса: {session_key.hex()}\n")
 print("****************************************")
 
-# Клиент отправляет запрос сервису
 service_authenticator = des_encrypt(session_key, pad(authenticator_str))
 print("****************************************")
 print(f"Клиент отправляет запрос на разрешение доступа к сервису (TGS).")
 print("****************************************")
 
-# Проверка на стороне сервиса
 decrypted_service_authenticator = des_decrypt(session_key, service_authenticator)
 unpadded_authenticator = unpad(decrypted_service_authenticator)
 print("\n****************************************")
