@@ -1,37 +1,28 @@
 import React, { useState } from "react";
+import { Dialog } from "@headlessui/react";
+import { XCircle } from "lucide-react";
 
 function App() {
 
-  const [sourceCode, setSourceCode] = useState(`
-function calculateCircleProperties(radius) {
+  const [sourceCode, setSourceCode] = useState(`function calculate(a, b) {
+  const sum = a + b;
+  const product = a * b;
   return {
-    radius: radius,
-    diameter: radius * 2,
-    circumference: 2 * Math.PI * radius,
-    area: Math.PI * Math.pow(radius, 2)
+    sum: sum,
+    product: product,
+    difference: Math.abs(a - b)
   };
 }
-
-function generateRandomNumbers(count, min, max) {
-  let numbers = [];
-  for (let i = 0; i < count; i++) {
-    numbers.push(Math.floor(Math.random() * (max - min + 1)) + min);
-  }
-  return numbers;
-}
-
-const circle = calculateCircleProperties(5);
-console.log("Circle properties:", circle);
-
-const randomNumbers = generateRandomNumbers(10, 1, 100);
-console.log("Random values:", randomNumbers);
   `);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const [obfuscatedCode, setObfuscatedCode] = useState("");
 
   const obfuscateCode = (code) => {
     function generateRandomString(length) {
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890АИВГДабвгд";
       let result = "";
       for (let i = 0; i < length; i++) {
         result += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -46,13 +37,13 @@ console.log("Random values:", randomNumbers);
     let replacements = {};
 
     code = code.replace(varPattern, (match, p1) => {
-      let newName = generateRandomString(6);
+      let newName = generateRandomString(10);
       replacements[p1] = newName;
       return match.replace(p1, newName);
     });
 
     code = code.replace(funcPattern, (match, p1) => {
-      let newName = generateRandomString(6);
+      let newName = generateRandomString(10);
       replacements[p1] = newName;
       return match.replace(p1, newName);
     });
@@ -60,7 +51,7 @@ console.log("Random values:", randomNumbers);
     code = code.replace(paramPattern, (match, p1) => {
       let params = p1.split(",").map((param) => param.trim()).filter((param) => param);
       let newParams = params.map((param) => {
-        let newName = generateRandomString(6);
+        let newName = generateRandomString(10);
         replacements[param] = newName;
         return newName;
       });
@@ -98,10 +89,12 @@ console.log("Random values:", randomNumbers);
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
       <h1 className="text-2xl font-bold mb-4">Лабораторная №7. Обфускация кода</h1>
+      <hr className="border-gray-500 my-4 w-full max-w-3xl" />
       <p className="text-gray-700 mb-4 max-w-2xl text-center">
         Обфускация кода — это процесс преобразования исходного кода в менее читаемый вид, чтобы усложнить его анализ.
         Здесь вы можете вставить JavaScript-код, обфусцировать его и увидеть результат.
       </p>
+      <hr className="border-gray-500 my-4 w-full max-w-3xl" />
       <div className="flex flex-col md:flex-row gap-4 w-full max-w-4xl">
         <div className="flex-1">
           <h2 className="text-lg font-semibold mb-2">Исходный код:</h2>
@@ -121,11 +114,11 @@ console.log("Random values:", randomNumbers);
         </div>
       </div>
       <button
-        onClick={handleObfuscate}
-        className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-      >
-        Обфусцировать код
-      </button>
+  onClick={handleObfuscate}
+  className="mt-4 px-6 py-2 text-white rounded-md bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900 hover:from-gray-600 hover:via-gray-900 hover:to-gray-600 transition-all shadow-lg"
+>
+  Обфусцировать код
+</button>
       <div className="mt-8 max-w-3xl text-gray-700">
         <h3 className="text-lg font-semibold mb-2">Как работает обфускация:</h3>
         <p className="mb-2">
@@ -133,13 +126,41 @@ console.log("Random values:", randomNumbers);
           но он продолжает выполнять ту же функцию. Например:
         </p>
         <ul className="list-disc list-inside mb-4">
-          <li>Переменные <code>radius</code> могут стать <code>AbCdEf</code>.</li>
-          <li>Функции <code>calculateCircleProperties</code> могут стать <code>XyZ123</code>.</li>
+          <li>Переменные <code>product</code> могут стать <code>YueГXваxsR</code>.</li>
+          <li>Функции <code>calculate(a, b)</code> могут стать <code>KO9MuPMpMW(P9RB8fUqBt,9дPZ8OCPbt)</code>.</li>
         </ul>
         <p>
           Такой процесс полезен для защиты интеллектуальной собственности, но его следует использовать с осторожностью.
         </p>
+        <hr className="border-gray-500 my-4 w-full max-w-3xl" />
+        <p
+          onClick={() => setIsModalOpen(true)}
+          className="text-center text-2xl text-gray-800 cursor-pointer hover:text-red-600 transition"
+        >
+          С 1 апреля :)
+        </p>
       </div>
+
+      <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)} className="relative z-50">
+        <div className="fixed inset-0 bg-black/40" aria-hidden="true" />
+        <div className="fixed inset-0 flex items-center justify-center p-4">
+          <Dialog.Panel className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl text-center">
+            <XCircle className="mx-auto h-12 w-12 text-red-500 mb-4" />
+            <Dialog.Title className="text-xl font-bold text-gray-800">
+              404
+            </Dialog.Title>
+            <p className="mt-2 text-gray-600">
+              У вас белая спина
+            </p>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="mt-6 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+            >
+              Закрыть
+            </button>
+          </Dialog.Panel>
+        </div>
+      </Dialog>
     </div>
   );
 }
